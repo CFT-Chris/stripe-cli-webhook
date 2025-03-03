@@ -1,0 +1,7 @@
+{
+  "name": "stripe-cli-webhook",
+  "version": "1.0.0",
+  "scripts": {
+    "preinstall": "sh ./preinstall.sh"
+  }
+}
