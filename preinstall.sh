@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ "$(id -u)" = "0" ]; then
-  curl -s https://packages.stripe.dev/api/security/keypair/stripe-cli-gpg/public | gpg --dearmor | tee /usr/share/keyrings/stripe.gpg
-  echo "deb [signed-by=/usr/share/keyrings/stripe.gpg] https://packages.stripe.dev/stripe-cli-debian-local stable main" | tee -a /etc/apt/sources.list.d/stripe.list
-  apt update
-  apt install -y stripe
+if [ "$(id -u)" = "0" ]; then  
+  wget https://github.com/stripe/stripe-cli/releases/download/v1.25.0/stripe_1.25.0_linux_x86_64.tar.gz
+  tar -xf stripe_1.25.0_linux_x86_64.tar.gz
+  rm stripe_1.25.0_linux_x86_64.tar.gz
+  mv stripe /usr/local/bin/stripe
 fi
